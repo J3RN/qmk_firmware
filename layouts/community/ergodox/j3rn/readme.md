@@ -19,7 +19,7 @@ This layout more closely resembles that of the Mac keyboard, and has some other 
 
 ### Other changes
 
-- **The button in the top-left is "Sleep."** Before macOS High Sierra, the power button was part of the key combination for triggering sleep. Since there's no power key in my layout, I was unable to sleep my laptop with this keyboard. By adding a dedicated sleep key, I fixed this. Now I just need a cool moon keycap for that key.
+- **The button in the top-left is Esc.** This is the case with most other keyboards, as well.
 - **The middle-most big key on the right thumb is "Tab."** I use tab *a lot*, so I decided to make it incredibly convenient.
 - **The button to the left of "Q" is Esc.** There is no functional reason for this other than to train me to use the tab under my right thumb.
 - **The button to the left of "A" is Ctrl/Esc instead of Backspace.** This is actually how I have the keyboard on my Macbook set up to be, since it's loads more convenient than a CAPS LOCK key. This is the Ctrl key I find myself using most.
