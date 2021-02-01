@@ -19,6 +19,7 @@ This layout more closely resembles that of the Mac keyboard, and has some other 
 
 ### Other changes
 
+- **The bottom-rightmost key toggles the "Gaming layer" (L3).** The gaming layer mimics a fairly standard keyboard and eliminates the home-row hold modifiers.
 - **The button in the top-left is Esc.** This is the case with most other keyboards, as well.
 - **The middle-most big key on the right thumb is "Tab."** I use tab *a lot*, so I decided to make it incredibly convenient.
 - **The button to the left of "Q" is Esc.** There is no functional reason for this other than to train me to use the tab under my right thumb.
