@@ -5,6 +5,7 @@
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
+#define GAME 3 // gaming
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -18,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| Hyper|           | Meh  |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | ~L1  | Alt  |AltShf| Left | Right|                                       |  Up  | Down |AltShf|  Alt | ~L1  |
+ *   | ~L1  | Alt  |AltShf| Left | Right|                                       |  Up  | Down |AltShf|  Alt |  L3  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | App  | Home |       | PgUp |Ctrl/Esc|
@@ -46,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_EQL,       KC_Y,   KC_U,         KC_I,          KC_O,         KC_P,     KC_BSLS,
                            KC_H,   RALT_T(KC_J), RCTL_T(KC_K),  RSFT_T(KC_L), KC_SCLN,  KC_QUOT,
              MEH_T(KC_NO), KC_N,   KC_M,         KC_COMM,       KC_DOT,       KC_SLSH,  KC_RSFT,
-                           KC_UP,  KC_DOWN,      RALT(KC_RSFT), KC_RALT,      MO(SYMB),
+                           KC_UP,  KC_DOWN,      RALT(KC_RSFT), KC_RALT,      DF(GAME),
 
              KC_PGUP,         CTL_T(KC_ESC),
              KC_PGDN,
@@ -136,6 +137,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_WBAK
 ),
+/* Keymap 3: Gaming layer
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * | Esc    |   1  |   2  |   3  |   4  |   5  |      |           |      |   6  |   7  |   8  |   9  |   0  |  BkSp  |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |        |   Q  |   W  |   E  |   R  |   T  |      |           |      |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  | K/Ctl| L/Sft|   ;  |   '    |
+ * |--------+------+------+------+------+------|      |           | Meh  |------+------+------+------+------+--------|
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   | Ctrl |      |      | Left | Right|                                       |  Up  | Down |      |      |      |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+// GAMING
+[GAME] = LAYOUT_ergodox(
+      // left hand
+      KC_ESC,        KC_1,    KC_2,    KC_3,    KC_4,     KC_5, KC_TRNS,
+      KC_TRNS,       KC_Q,    KC_W,    KC_E,    KC_R,     KC_T, KC_TRNS,
+      CTL_T(KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,     KC_G,
+      KC_LSFT,       KC_Z,    KC_X,    KC_C,    KC_V,     KC_B, KC_TRNS,
+      KC_LCTL,       KC_TRNS, KC_TRNS, KC_LEFT, KC_RGHT,
+
+                                                       KC_TRNS, KC_TRNS,
+                                                                KC_TRNS,
+                                             KC_TRNS, KC_TRNS, MO(MDIA),
+
+      // right hand
+      KC_TRNS, KC_6,    KC_7,    KC_8,    KC_9,     KC_0,    KC_BSPC,
+      KC_TRNS, KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,    KC_BSLS,
+      KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_QUOT,
+      KC_TRNS, KC_N,    KC_M,    KC_COMM, KC_DOT,   KC_SLSH, KC_RSFT,
+      KC_UP,   KC_DOWN, KC_TRNS, KC_TRNS, DF(BASE),
+
+      KC_TRNS, KC_TRNS,
+      KC_TRNS,
+      KC_TRNS, KC_TRNS, KC_TRNS
+)
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -169,11 +215,14 @@ void matrix_scan_user(void) {
     ergodox_right_led_3_off();
     switch (layer) {
       // TODO: Make this relevant to the ErgoDox EZ.
-        case 1:
+        case SYMB:
             ergodox_right_led_1_on();
             break;
-        case 2:
-            ergodox_right_led_2_on();
+        case MDIA:
+             ergodox_right_led_2_on();
+            break;
+        case GAME:
+            ergodox_right_led_3_on();
             break;
         default:
             // none
