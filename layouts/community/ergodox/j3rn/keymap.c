@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * | Esc    |   1  |   2  |   3  |   4  |   5  |      |           |      |   6  |   7  |   8  |   9  |   0  |  BkSp  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |   Q  |   W  |   E  |   R  |   T  |      |           |      |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  |      |           |      |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -164,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [GAME] = LAYOUT_ergodox(
       // left hand
       KC_ESC,        KC_1,    KC_2,    KC_3,    KC_4,     KC_5, KC_TRNS,
-      KC_TRNS,       KC_Q,    KC_W,    KC_E,    KC_R,     KC_T, KC_TRNS,
+      KC_TAB,        KC_Q,    KC_W,    KC_E,    KC_R,     KC_T, KC_TRNS,
       CTL_T(KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,     KC_G,
       KC_LSFT,       KC_Z,    KC_X,    KC_C,    KC_V,     KC_B, KC_TRNS,
       KC_LCTL,       KC_TRNS, KC_TRNS, KC_LEFT, KC_RGHT,
