@@ -2,10 +2,12 @@
 #include "debug.h"
 #include "action_layer.h"
 
-#define BASE 0 // default layer
-#define SYMB 1 // symbols
-#define MDIA 2 // media keys
-#define GAME 3 // gaming
+enum layers {
+  BASE, // default layer
+  SYMB,  // symbols
+  MDIA,  // media keys
+  GAME,  // gaming
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -184,29 +186,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 };
 
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-  // MACRODOWN only works in this function
-      switch(id) {
-        case 0:
-        if (record->event.pressed) {
-          register_code(KC_RSFT);
-        } else {
-          unregister_code(KC_RSFT);
-        }
-        break;
-      }
-    return MACRO_NONE;
-};
-
-// Runs just one time when the keyboard initializes.
-void matrix_init_user(void) {
-
-};
-
 // Runs constantly in the background, in a loop.
 void matrix_scan_user(void) {
-
     uint8_t layer = biton32(layer_state);
 
     ergodox_board_led_off();
