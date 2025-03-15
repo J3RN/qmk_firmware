@@ -55,6 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_PGDN,
              MO(SYMB),KC_TAB, KC_ENT
     ),
+
 /* Keymap 1: Symbol Layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
@@ -76,7 +77,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
-// SYMBOLS
 [SYMB] = LAYOUT_ergodox(
        // left hand
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
@@ -98,6 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
 ),
+
 /* Keymap 2: Media and mouse keys
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
@@ -119,7 +120,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
-// MEDIA AND MOUSE
 [MDIA] = LAYOUT_ergodox(
        KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -139,6 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_WBAK
 ),
+
 /* Keymap 3: Gaming layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
@@ -146,8 +147,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |   Q  |   W  |   E  |   R  |   T  |      |           |      |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  | K/Ctl| L/Sft|   ;  |   '    |
- * |--------+------+------+------+------+------|      |           | Meh  |------+------+------+------+------+--------|
+ * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   | Ctrl |      |      | Left | Right|                                       |  Up  | Down |      |      |      |
@@ -157,10 +158,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |      |       |      |      |      |
  *                                 |      |      |------|       |------|      |      |
- *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      | ~L2  |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
-// GAMING
 [GAME] = LAYOUT_ergodox(
       // left hand
       KC_ESC,        KC_1,    KC_2,    KC_3,    KC_4,     KC_5, KC_TRNS,
@@ -176,7 +176,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       // right hand
       KC_TRNS, KC_6,    KC_7,    KC_8,    KC_9,     KC_0,    KC_BSPC,
       KC_TRNS, KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,    KC_BSLS,
-      KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_QUOT,
+               KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN, KC_QUOT,
       KC_TRNS, KC_N,    KC_M,    KC_COMM, KC_DOT,   KC_SLSH, KC_RSFT,
       KC_UP,   KC_DOWN, KC_TRNS, KC_TRNS, DF(BASE),
 
